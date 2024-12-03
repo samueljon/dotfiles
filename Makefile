@@ -3,7 +3,7 @@ install:
 	ansible-playbook -i "localhost," -c local -K playbooks/all.yml
 
 stow:
-	stow -t $HOME zsh nvim tmux fish
+	stow -t ${HOME} zsh nvim tmux fish
 
 .PHONY: install stow 
 
