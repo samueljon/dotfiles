@@ -5,5 +5,20 @@ install:
 stow:
 	stow -t ${HOME} zsh nvim tmux fish
 
-.PHONY: install stow 
+setup-zsh:
+	stow -t ~ zsh
+
+setup-nvim:
+	stow -t ~ nvim
+
+setup-fish:
+	stow -t ~ fish
+
+setup-configs:
+	$(MAKE) setup-zsh
+	$(MAKE) setup-fish
+	$(MAKE) setup-nvim
+
+
+.PHONY: install stow setup-stow setup-nvim setup-fish setup-configs
 

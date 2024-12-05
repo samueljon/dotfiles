@@ -40,7 +40,7 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+#zinit snippet OMZP::archlinux
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
@@ -93,4 +93,50 @@ eval "$(zoxide init --cmd cd zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+alias k="kubectl"
+alias v="velero"
+alias vim="nvim"
+alias vi="nvim"
+alias k="kubectl"
+alias kubectl="kubecolor"
+alias myip="curl wtfismyip.com/text"
+alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias syncbooks='rsync -avr ~/Library/Mobile\ Documents/com~apple~CloudDocs/calibre-lib calibre.villingaholt.nu:/opt/calibre-lib'
+alias ls="eza"
+alias ll="eza -l -g --icons"
+alias lla="ll -a"
+
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
+# get zsh complete kubectl
+source <(kubectl completion zsh)
+# make completion work with kubecolor
+compdef kubecolor=kubectl
+
+
+function pgexec() {
+    pgcluster=$1
+    shift
+    /usr/local/bin/kubectl exec -c postgres -ti $(kubectl get pods -o custom-columns=:metadata.name --field-selector status.podIP=$(/usr/local/bin/kubectl get endpoints $pgcluster -o go-template='{{ (index (index .subsets 0).addresses 0).ip }}')) -- "$@"
+}
+
+function enansible() {
+    source ~/_runtimes/ansible/bin/activate
+}
+
+function disansible() {
+    source ~/_runtimes/ansible/bin/deativate
+}
+
+function flushcache(){
+    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+}
+
+function hiddenoff(){
+    defaults write com.apple.finder AppleShowAllFiles FALSE
+    killall Finder
+}
+
+function hiddenon(){
+    defaults write com.apple.finder AppleShowAllFiles TRUE
+    killall Finder
+}
