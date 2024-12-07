@@ -2,25 +2,56 @@ install:
 	ansible-galaxy collection install community.general
 	ansible-playbook -i "localhost," -c local -K playbooks/all.yml
 
-stow:
-	stow -t ${HOME} zsh nvim tmux fish
-
+# zsh
 setup-zsh:
 	stow -t ~ zsh
 
+prepare-zsh:
+	mv ~/.config/zsh ~/.config/zsh.bak.$(date +%Y%m%d%H%M%S)
+
+backup-zsh:
+	cp -pr ~/.config/zsh ~/.config/zsh.bak.$(date +%Y%m%d%H%M%S)
+
+# Neovim
 setup-nvim:
 	stow -t ~ nvim
 
+prepare-nvim:
+	mv ~/.config/nvim ~/.config/nvim.bak.$(date +%Y%m%d%H%M%S)
+
+backup-nvim:
+	cp -pr ~/.config/nvim ~/.config/nvim.bak.$(date +%Y%m%d%H%M%S)
+
+# Fish shell
 setup-fish:
 	stow -t ~ fish
 
+prepare-fish:
+	mv ~/.config/fish ~/.config/fish.bak.$(date +%Y%m%d%H%M%S)
+
+backup-fish:
+	cp -pr ~/.config/fish ~/.config/fish.bak.$(date +%Y%m%d%H%M%S)
+
+# i3 Window Manager
+setup-i3:
+	stow -t ~ i3
+
+prepare-i3:
+	mv ~/.config/i3 ~/.config/i3.bak.$(date +%Y%m%d%H%M%S)
+	mv ~/.config/i3blocks ~/.config/i3blocks.bak.$(date +%Y%m%d%H%M%S)
+	mv ~/.config/i3status ~/.config/i3status.bak.$(date +%Y%m%d%H%M%S)
+
+backup-i3:
+	cp -pr ~/.config/i3 ~/.config/i3.bak.$(date +%Y%m%d%H%M%S)
+	cp -pr ~/.config/i3blocks ~/.config/i3blocks.bak.$(date +%Y%m%d%H%M%S)
+	cp -pr ~/.config/i3status ~/.config/i3status.bak.$(date +%Y%m%d%H%M%S)
+
+# Run all config setups 
 setup-configs:
 	$(MAKE) setup-zsh
 	$(MAKE) setup-fish
 	$(MAKE) setup-nvim
-
-setup-i3:
-	stow -t ~ i3
+	$(MAKE) setup-i3
 
 .PHONY: install stow setup-stow setup-nvim setup-fish setup-configs setup-i3
 
