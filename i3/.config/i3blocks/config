@@ -1,0 +1,49 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+#[documentation]
+#full_text=Documentation
+#website=https://vivien.github.io/i3blocks
+#command=xdg-open "$website"
+
+
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+# Query my default IP address only on startup
+#[ip]
+#command=hostname -i | awk '{ print "IP:" $1 }'
+#interval=once
+#color=#91E78B
+
+#[battery]
+#command=battery.sh
+#interval=10
+
+#/home/samueljon/.config/i3blocks/i3blocks-contrib
+
+[load_average]
+command=/home/samueljon/.config/i3blocks/i3blocks-contrib/load_average/load_average
+interval=10
+
+[memory]
+command=/home/samueljon/.config/i3blocks/i3blocks-contrib/memory/memory
+label=MEM 
+interval=30
+
+[battery2]
+command=/home/samueljon/.config/i3blocks/i3blocks-contrib/battery2/battery2
+markup=pango
+interval=30
+
