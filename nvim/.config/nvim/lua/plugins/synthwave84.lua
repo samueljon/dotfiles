@@ -14,4 +14,11 @@ return {
       buffer_inactive_target = true,
     },
   },
+  -- Configure LazyVim to load gruvbox
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "synthwave84",
+    },
+  },
 }

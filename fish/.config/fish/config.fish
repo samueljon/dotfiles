@@ -3,14 +3,14 @@ if status is-interactive
 end
 set --prepend PATH "$HOME/.local/bin"
 
-starship init fish | source
 
 set fish_greeting ""
 
 set -gx TERM xterm-256color
 
 # theme
-set -g theme_color_scheme terminal-dark
+#set -g theme_color_scheme terminal-dark
+set -g theme_color_scheme nord
 set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_user yes
 set -g theme_hide_hostname no
@@ -82,3 +82,4 @@ if test -f $LOCAL_CONFIG
 end
 
 zoxide init --cmd cd fish | source
+starship init fish | source
