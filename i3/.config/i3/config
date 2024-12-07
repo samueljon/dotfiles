@@ -207,6 +207,12 @@ client.focused_inactive #002b36     #073642 #839496     #073642
 client.unfocused        #002b36     #073642 #839496     #073642
 client.urgent           #002b36     #dc322f #fdf6e3     #002b36
 
+# Configure 5px of space between windows and to the screen edges.
+gaps inner 10px
+# Configure an additional 5px of extra space to the screen edges,
+# for a total gap of 10px to the screen edges, and 5px between windows.
+gaps outer 15px
+
 bar {
     status_command i3status
     position top

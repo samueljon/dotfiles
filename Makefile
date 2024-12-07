@@ -32,6 +32,17 @@ prepare-fish:
 backup-fish:
 	cp -pr ~/.config/fish ~/.config/fish.bak.$(date +%Y%m%d%H%M%S)
 
+# kitty shell
+setup-kitty:
+	stow -v -t ~ kitty
+
+prepare-kitty:
+	mv ~/.config/kitty ~/.config/kitty.bak.$(date +%Y%m%d%H%M%S)
+
+backup-kitty:
+	cp -pr ~/.config/kitty ~/.config/kitty.bak.$(date +%Y%m%d%H%M%S)
+
+
 # i3 Window Manager
 setup-i3:
 	stow -t ~ i3
