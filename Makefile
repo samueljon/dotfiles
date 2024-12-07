@@ -19,6 +19,8 @@ setup-configs:
 	$(MAKE) setup-fish
 	$(MAKE) setup-nvim
 
+setup-i3:
+	stow -t ~ i3
 
-.PHONY: install stow setup-stow setup-nvim setup-fish setup-configs
+.PHONY: install stow setup-stow setup-nvim setup-fish setup-configs setup-i3
 
