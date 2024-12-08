@@ -42,6 +42,17 @@ prepare-kitty:
 backup-kitty:
 	cp -pr ~/.config/kitty ~/.config/kitty.bak.$(date +%Y%m%d%H%M%S)
 
+# Hyprland
+setup-hypr:
+	stow -v -t ~ hypr
+
+prepare-hypr:
+	mv ~/.config/hypr ~/.config/hypr.bak.$(date +%Y%m%d%H%M%S)
+	mv ~/.config/waybar ~/.config/waybar.bak.$(date +%Y%m%d%H%M%S)
+
+backup-hypr:
+	cp -pr ~/.config/hypr ~/.config/hypr.bak.$(date +%Y%m%d%H%M%S)
+	cp -pr ~/.config/waybar ~/.config/waybar.bak.$(date +%Y%m%d%H%M%S)
 
 # i3 Window Manager
 setup-i3:
