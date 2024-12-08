@@ -3,7 +3,6 @@ if status is-interactive
 end
 set --prepend PATH "$HOME/.local/bin"
 
-
 set fish_greeting ""
 
 set -gx TERM xterm-256color
@@ -81,5 +80,5 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-zoxide init --cmd cd fish | source
+zoxide init fish | source
 starship init fish | source
