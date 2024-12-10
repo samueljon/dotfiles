@@ -73,7 +73,7 @@ setup-configs:
 	$(MAKE) setup-zsh
 	$(MAKE) setup-fish
 	$(MAKE) setup-nvim
-	$(MAKE) setup-i3
+	$(MAKE) setup-kitty
 
 .PHONY: install stow setup-stow setup-nvim setup-fish setup-configs setup-i3
 
