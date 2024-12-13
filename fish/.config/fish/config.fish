@@ -23,6 +23,9 @@ alias lla "ll -A"
 #alias g git
 alias tree "eza --tree"
 
+alias ocpproxy "export HTTP_PROXY=\"http://localhost:1337\" && export HTTPS_PROXY=\"https://localhost:1337\""
+alias ocpproxyoff "set --erase HTTP_PROXY && set --erase HTTPS_PROXY"
+
 # Changing "ls" to "eza"
 alias ls='eza -al --color=always --group-directories-first' # my preferred listing
 alias la='eza -a --color=always --group-directories-first' # all files and dirs
