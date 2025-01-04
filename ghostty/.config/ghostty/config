@@ -1,2 +1,4 @@
 font-family = "FiraCode Nerd Font Mono SemBd"
-theme = "synthwave-everything"
+#theme = "synthwave-everything"
+theme = catppuccin-frappe
+background-opacity = 0.8
