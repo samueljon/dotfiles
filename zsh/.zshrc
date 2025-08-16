@@ -140,3 +140,6 @@ function hiddenon(){
     defaults write com.apple.finder AppleShowAllFiles TRUE
     killall Finder
 }
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/samueljon/.lmstudio/bin"

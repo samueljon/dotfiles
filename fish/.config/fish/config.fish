@@ -36,6 +36,7 @@ alias l.='eza -al --color=always --group-directories-first ../' # ls on the PARE
 alias l..='eza -al --color=always --group-directories-first ../../' # ls on directory 2 levels up
 alias l...='eza -al --color=always --group-directories-first ../../../' # ls on directory 3 levels up
 
+alias iCloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 set -gx EDITOR nvim
 
@@ -77,7 +78,6 @@ switch (uname)
         source (dirname (status --current-filename))/config-windows.fish
 end
 
-
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
@@ -85,7 +85,3 @@ end
 
 zoxide init --cmd cd fish | source
 starship init fish | source
-
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :

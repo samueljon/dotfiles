@@ -1,4 +1,6 @@
-font-family = "FiraCode Nerd Font Mono SemBd"
-theme = "synthwave-everything"
+#font-family = "FiraCode Nerd Font Mono SemBd"
+font-family = "0xProto Nerd Font Mono"
+#theme = "synthwave-everything"
 #theme = catppuccin-frappe
+theme = nord
 background-opacity = 0.9
