@@ -36,7 +36,8 @@ alias l.='eza -al --color=always --group-directories-first ../' # ls on the PARE
 alias l..='eza -al --color=always --group-directories-first ../../' # ls on directory 2 levels up
 alias l...='eza -al --color=always --group-directories-first ../../../' # ls on directory 3 levels up
 
-alias iCloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias onotes="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents"
 
 set -gx EDITOR nvim
 
@@ -85,3 +86,21 @@ end
 
 zoxide init --cmd cd fish | source
 starship init fish | source
+
+# This needs to be added before "function ... --wraps kubectl"
+kubectl completion fish | source
+
+# adds alias for "kubectl" to "kubecolor" with completions
+function kubectl --wraps kubectl
+    command kubecolor $argv
+end
+
+# adds alias for "k" to "kubecolor" with completions
+function k --wraps kubectl
+    command kubecolor $argv
+end
+
+# reuse "kubectl" completions on "kubecolor"
+function kubecolor --wraps kubectl
+    command kubecolor $argv
+end
