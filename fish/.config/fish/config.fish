@@ -27,6 +27,7 @@ if type -q eza; and not set -q CLAUDECODE
     alias ll='eza -l -g --color=always --group-directories-first --icons'
     alias lt='eza -aT --color=always --group-directories-first'
     alias lla='ll -a'
+    alias ltr='eza -l --sort=modified --reverse --color=always --icons'
     alias l.='eza -a | egrep "^\."'
     alias l..='eza -al --color=always --group-directories-first ../../'
     alias l...='eza -al --color=always --group-directories-first ../../../'

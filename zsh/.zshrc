@@ -107,6 +107,7 @@ if command -v eza &> /dev/null && [[ -z "$CLAUDECODE" ]]; then
     alias ls="eza"
     alias ll="eza -l -g --icons"
     alias lla="ll -a"
+    alias ltr="eza -l --sort=modified --reverse --icons"
 fi
 
 # Source OS-specific configuration
