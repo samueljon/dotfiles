@@ -1,0 +1,23 @@
+# macOS-specific aliases
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias onotes='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents'
+alias brain='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/COG-second-brain'
+alias syncbooks='rsync -avr ~/Library/Mobile\ Documents/com~apple~CloudDocs/calibre-lib calibre.villingaholt.nu:/opt/calibre-lib'
+
+# macOS-specific functions
+function flushcache(){
+    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+}
+
+function hiddenoff(){
+    defaults write com.apple.finder AppleShowAllFiles FALSE
+    killall Finder
+}
+
+function hiddenon(){
+    defaults write com.apple.finder AppleShowAllFiles TRUE
+    killall Finder
+}
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"

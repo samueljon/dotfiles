@@ -1,4 +1,3 @@
-export PATH=$PATH:/snap/bin
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 #
 # Initialization code that may require console input (password prompts, [y/n]
@@ -8,8 +7,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 if [[ -f "/opt/homebrew/bin/brew" ]] then
-  # If you're using macOS, you'll want this enabled
+  # Homebrew on macOS
   eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -d "/home/linuxbrew/.linuxbrew" ]] then
+  # Homebrew on Linux
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 #XDG_CONFIG_HOME="$HOME/.config"
@@ -97,15 +99,26 @@ alias k="kubectl"
 alias v="velero"
 alias vim="nvim"
 alias vi="nvim"
-alias k="kubectl"
 alias kubectl="kubecolor"
 alias myip="curl wtfismyip.com/text"
-alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
-alias onotes='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents'
-alias syncbooks='rsync -avr ~/Library/Mobile\ Documents/com~apple~CloudDocs/calibre-lib calibre.villingaholt.nu:/opt/calibre-lib'
-alias ls="eza"
-alias ll="eza -l -g --icons"
-alias lla="ll -a"
+
+# Skip eza aliases inside Claude Code to avoid parsing issues
+if command -v eza &> /dev/null && [[ -z "$CLAUDECODE" ]]; then
+    alias ls="eza"
+    alias ll="eza -l -g --icons"
+    alias lla="ll -a"
+    alias ltr="eza -l --sort=modified --reverse --icons"
+fi
+
+# Source OS-specific configuration
+case "$(uname)" in
+    Darwin)
+        [[ -f ~/.zshrc-osx ]] && source ~/.zshrc-osx
+        ;;
+    Linux)
+        [[ -f ~/.zshrc-linux ]] && source ~/.zshrc-linux
+        ;;
+esac
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 # get zsh complete kubectl
@@ -125,22 +138,6 @@ function enansible() {
 }
 
 function disansible() {
-    source ~/_runtimes/ansible/bin/deativate
+    source ~/_runtimes/ansible/bin/deactivate
 }
 
-function flushcache(){
-    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
-}
-
-function hiddenoff(){
-    defaults write com.apple.finder AppleShowAllFiles FALSE
-    killall Finder
-}
-
-function hiddenon(){
-    defaults write com.apple.finder AppleShowAllFiles TRUE
-    killall Finder
-}
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/samueljon/.lmstudio/bin"
