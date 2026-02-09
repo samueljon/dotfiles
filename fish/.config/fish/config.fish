@@ -20,7 +20,8 @@ alias ocpproxy "export HTTP_PROXY=\"http://localhost:1337\" && export HTTPS_PROX
 alias ocpproxyoff "set --erase HTTP_PROXY && set --erase HTTPS_PROXY"
 
 # Changing "ls" to "eza"
-if type -q eza
+# Skip eza aliases inside Claude Code to avoid parsing issues
+if type -q eza; and not set -q CLAUDECODE
     alias ls='eza -al --color=always --group-directories-first --icons'
     alias la='eza -a --color=always --group-directories-first'
     alias ll='eza -l -g --color=always --group-directories-first --icons'

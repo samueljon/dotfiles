@@ -102,7 +102,8 @@ alias vi="nvim"
 alias kubectl="kubecolor"
 alias myip="curl wtfismyip.com/text"
 
-if command -v eza &> /dev/null; then
+# Skip eza aliases inside Claude Code to avoid parsing issues
+if command -v eza &> /dev/null && [[ -z "$CLAUDECODE" ]]; then
     alias ls="eza"
     alias ll="eza -l -g --icons"
     alias lla="ll -a"
