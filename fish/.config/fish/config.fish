@@ -16,28 +16,21 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-#alias ls "ls -p -G"
-#alias la "ls -A"
-#alias ll "ls -l"
-alias lla "ll -A"
-#alias g git
-alias tree "eza --tree"
-
 alias ocpproxy "export HTTP_PROXY=\"http://localhost:1337\" && export HTTPS_PROXY=\"https://localhost:1337\""
 alias ocpproxyoff "set --erase HTTP_PROXY && set --erase HTTPS_PROXY"
 
 # Changing "ls" to "eza"
-alias ls='eza -al --color=always --group-directories-first' # my preferred listing
-alias la='eza -a --color=always --group-directories-first' # all files and dirs
-alias ll='eza -l --color=always --group-directories-first' # long format
-alias lt='eza -aT --color=always --group-directories-first' # tree listing
-alias l.='eza -a | egrep "^\."'
-alias l.='eza -al --color=always --group-directories-first ../' # ls on the PARENT directory
-alias l..='eza -al --color=always --group-directories-first ../../' # ls on directory 2 levels up
-alias l...='eza -al --color=always --group-directories-first ../../../' # ls on directory 3 levels up
-
-alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias onotes="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents"
+if type -q eza
+    alias ls='eza -al --color=always --group-directories-first --icons'
+    alias la='eza -a --color=always --group-directories-first'
+    alias ll='eza -l -g --color=always --group-directories-first --icons'
+    alias lt='eza -aT --color=always --group-directories-first'
+    alias lla='ll -a'
+    alias l.='eza -a | egrep "^\."'
+    alias l..='eza -al --color=always --group-directories-first ../../'
+    alias l...='eza -al --color=always --group-directories-first ../../../'
+    alias tree='eza --tree'
+end
 
 set -gx EDITOR nvim
 
@@ -75,8 +68,6 @@ switch (uname)
         source (dirname (status --current-filename))/config-osx.fish
     case Linux
         source (dirname (status --current-filename))/config-linux.fish
-    case '*'
-        source (dirname (status --current-filename))/config-windows.fish
 end
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
