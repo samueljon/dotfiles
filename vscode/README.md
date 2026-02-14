@@ -2,15 +2,23 @@
 
 This directory contains VS Code global settings that are managed with GNU Stow.
 
+## What's Managed
+
+Currently, this directory manages:
+- `settings.json` - Global VS Code settings
+
+The prepare/backup targets handle the entire `~/Library/Application Support/Code/User/` 
+directory to ensure stow can properly create symlinks without conflicts.
+
 ## Setup
 
-Before running the setup, backup your existing settings:
+Before running the setup, backup your existing VS Code User directory:
 
 ```bash
 make backup-vscode
 ```
 
-Then move your existing settings out of the way:
+Then move your existing User directory out of the way:
 
 ```bash
 make prepare-vscode
@@ -26,14 +34,14 @@ make setup-vscode
 
 If you prefer to do it manually:
 
-1. Backup existing settings:
+1. Backup existing User directory:
    ```bash
-   cp ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.bak
+   cp -pr ~/Library/Application\ Support/Code/User ~/Library/Application\ Support/Code/User.bak
    ```
 
 2. Remove the original:
    ```bash
-   rm ~/Library/Application\ Support/Code/User/settings.json
+   rm -rf ~/Library/Application\ Support/Code/User
    ```
 
 3. Create symlink with stow:
@@ -43,10 +51,30 @@ If you prefer to do it manually:
 
 ## Updating Settings
 
-After making changes to your VS Code settings, copy them back to the dotfiles:
+After making changes to your VS Code settings, they're automatically saved to the 
+dotfiles since the directory is symlinked. Just commit the changes:
 
 ```bash
-cp ~/Library/Application\ Support/Code/User/settings.json vscode/Library/Application\ Support/Code/User/settings.json
+cd ~/.dotfiles/dotfiles
+git add vscode/
+git commit -m "Update VS Code settings"
+git push
 ```
 
-Then commit the changes to git.
+## Adding More VS Code Files
+
+To add more files (like keybindings.json, snippets, etc.):
+
+1. Copy the file into the dotfiles:
+   ```bash
+   cp ~/Library/Application\ Support/Code/User/keybindings.json \
+      vscode/Library/Application\ Support/Code/User/keybindings.json
+   ```
+
+2. Commit the changes:
+   ```bash
+   git add vscode/
+   git commit -m "Add VS Code keybindings"
+   ```
+
+Since the directory is already symlinked, the new file will automatically be available.
