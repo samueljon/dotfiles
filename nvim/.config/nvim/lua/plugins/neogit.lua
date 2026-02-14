@@ -1,5 +1,4 @@
-return
-{
+return {
   "NeogitOrg/neogit",
   dependencies = {
     "nvim-lua/plenary.nvim",         -- required
@@ -8,8 +7,7 @@ return
     -- Only one of these is needed.
     "nvim-telescope/telescope.nvim", -- optional
     "ibhagwan/fzf-lua",              -- optional
-    "echasnovski/mini.pick",         -- optional
+    "nvim-mini/mini.pick",           -- optional (renamed from echasnovski/mini.pick)
   },
-  config = true
+  config = true,
 }
-
