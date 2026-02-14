@@ -42,6 +42,16 @@ prepare-kitty:
 backup-kitty:
 	cp -pr ~/.config/kitty ~/.config/kitty.bak.$(date +%Y%m%d%H%M%S)
 
+# Ghostty terminal
+setup-ghostty:
+	stow -v -t ~ ghostty
+
+prepare-ghostty:
+	mv ~/.config/ghostty ~/.config/ghostty.bak.$(date +%Y%m%d%H%M%S)
+
+backup-ghostty:
+	cp -pr ~/.config/ghostty ~/.config/ghostty.bak.$(date +%Y%m%d%H%M%S)
+
 # Hyprland
 setup-hypr:
 	stow -v -t ~ hypr
@@ -68,12 +78,13 @@ backup-i3:
 	cp -pr ~/.config/i3blocks ~/.config/i3blocks.bak.$(date +%Y%m%d%H%M%S)
 	cp -pr ~/.config/i3status ~/.config/i3status.bak.$(date +%Y%m%d%H%M%S)
 
-# Run all config setups 
+# Run all config setups
 setup-configs:
 	$(MAKE) setup-zsh
 	$(MAKE) setup-fish
 	$(MAKE) setup-nvim
 	$(MAKE) setup-kitty
+	$(MAKE) setup-ghostty
 
-.PHONY: install stow setup-stow setup-nvim setup-fish setup-configs setup-i3
+.PHONY: install stow setup-stow setup-nvim setup-fish setup-configs setup-i3 setup-kitty setup-ghostty
 
