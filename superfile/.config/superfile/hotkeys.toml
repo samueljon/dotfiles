@@ -1,61 +1,167 @@
-# =================================================================================================
-# Global hotkeys (cannot conflict with other hotkeys)
+###############################################
+##         Superfile vim-like Hotkeys        ##
+##                                           ##
+## Based on vim navigation and operations   ##
+## Maintainer: nonepork                      ##
+###############################################
+
+################################################################################
+#                             GLOBAL HOTKEYS                                   #
+################################################################################
+# Note: These hotkeys should be unique and cannot conflict with other hotkeys
+
+#-- Basic Actions --
+# Confirm selection or execute action (Enter key)
 confirm = ['enter', '']
+
+# Quit current panel/view (Vim-style quit with Ctrl+C)
 quit = ['ctrl+c', '']
+
+# Quit superfile and change directory to last visited location
 cd_quit = ['Q', '']
-# movement
+
+#-- Navigation --
+# Move cursor up in file list (Vim-style 'k' for up)
 list_up = ['k', '']
+
+# Move cursor down in file list (Vim-style 'j' for down)
 list_down = ['j', '']
+
+# Scroll up one page
 page_up = ['pgup', '']
+
+# Scroll down one page
 page_down = ['pgdown', '']
-# file panel control
+
+#-- File Panel Control --
+# Close the current file panel (Vim-style 'q' for quit)
 close_file_panel = ['q', '']
+
+# Create a new file panel/split (like opening a new window)
 create_new_file_panel = ['n', '']
+
+# Switch to next file panel (Tab to move forward)
 next_file_panel = ['tab', '']
+
+# Switch to previous file panel (Shift+Tab to move backward)
 previous_file_panel = ['shift+tab', '']
+
+# Toggle file preview panel on/off
 toggle_file_preview_panel = ['f', '']
+
+# Open menu to change sort options (by name, size, date, etc.)
 open_sort_options_menu = ['o', '']
+
+# Toggle reverse sort order (ascending/descending)
 toggle_reverse_sort = ['R', '']
-# change focus
+
+#-- Focus Manipulation --
+# Focus on the process bar (shows background operations)
 focus_on_process_bar = ['ctrl+p', '']
+
+# Focus on the sidebar (directory tree view)
 focus_on_sidebar = ['ctrl+s', '']
+
+# Focus on file metadata panel (shows file details)
 focus_on_metadata = ['ctrl+d', '']
-# create file/directory and rename 
+
+#-- File/Directory Creation & Renaming --
+# Create new file or directory (Vim-style 'a' for append/add)
 file_panel_item_create = ['a', '']
+
+# Rename selected file or directory (Vim-style 'r' for replace)
 file_panel_item_rename = ['r', '']
-# file operate
+
+#-- Main File Operations --
+# Copy selected items to clipboard (Vim-style 'y' for yank)
 copy_items = ['y', '']
+
+# Paste copied/cut items (Vim-style 'p' for put/paste)
 paste_items = ['p', '']
+
+# Cut selected items (Vim-style 'x' for delete/cut)
 cut_items = ['x', '']
+
+# Delete selected items (move to trash)
 delete_items = ['d', '']
+
+# Permanently delete items (bypass trash, cannot be recovered)
 permanently_delete_items = ['D', '']
-# compress and extract
+
+#-- Archive Manipulation --
+# Extract compressed file (zip, tar, gz, etc.)
 extract_file = ['ctrl+e', '']
+
+# Compress selected files/directories into archive
 compress_file = ['ctrl+a', '']
-# editor
+
+#-- Editor Actions --
+# Open selected file with default editor
 open_file_with_editor = ['e', '']
+
+# Open current directory in default editor (useful for project editing)
 open_current_directory_with_editor = ['E', '']
-# other
+
+#-- Other Actions --
+# Pin/unpin current directory for quick access
 pinned_directory = ['P', '']
+
+# Toggle visibility of hidden files (dotfiles)
 toggle_dot_file = ['.', '']
+
+# Change panel display mode (list, grid, etc.)
 change_panel_mode = ['m', '']
+
+# Open help menu with all available commands
 open_help_menu = ['?', '']
+
+# Open command line mode (execute shell commands)
 open_command_line = [':', '']
+
+# Open superfile prompt for internal commands
 open_spf_prompt = ['>', '']
+
+# Open zoxide integration (smart directory jumping)
 open_zoxide = ['z', '']
+
+# Copy full path of selected item to clipboard
 copy_path = ['Y', '']
+
+# Copy present working directory (current path) to clipboard
 copy_present_working_directory = ['c', '']
+
+# Toggle footer visibility (shows status bar at bottom)
 toggle_footer = ['ctrl+f', '']
-# =================================================================================================
-# Typing hotkeys (can conflict with all hotkeys)
+
+################################################################################
+#                            TYPING HOTKEYS                                    #
+################################################################################
+# Note: These hotkeys can override all other hotkeys when typing
+
+# Confirm text input (when renaming, creating, searching, etc.)
 confirm_typing = ['enter', '']
+
+# Cancel text input and return to normal mode
 cancel_typing = ['esc', '']
-# =================================================================================================
-# Normal mode hotkeys (can conflict with other modes, cannot conflict with global hotkeys)
+
+################################################################################
+#                         MODE-SPECIFIC HOTKEYS                                #
+################################################################################
+# Note: These can conflict with other modes but not with global hotkeys
+
+#-- Normal Mode Actions --
+# Go to parent directory (Vim-style '-' to go up)
 parent_directory = ['-', '']
+
+# Open search bar to find files/directories
 search_bar = ['/', '']
-# =================================================================================================
-# Select mode hotkeys (can conflict with other modes, cannot conflict with global hotkeys)
+
+#-- Selection Mode Actions --
+# Select items downward (extend selection down with Shift+J)
 file_panel_select_mode_items_select_down = ['J', '']
+
+# Select items upward (extend selection up with Shift+K)
 file_panel_select_mode_items_select_up = ['K', '']
+
+# Select all items in current directory
 file_panel_select_all_items = ['A', '']

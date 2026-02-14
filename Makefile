@@ -85,6 +85,17 @@ setup-configs:
 	$(MAKE) setup-nvim
 	$(MAKE) setup-kitty
 	$(MAKE) setup-ghostty
+	$(MAKE) setup-vscode
 
-.PHONY: install stow setup-stow setup-nvim setup-fish setup-configs setup-i3 setup-kitty setup-ghostty
+.PHONY: install stow setup-stow setup-nvim setup-fish setup-configs setup-i3 setup-kitty setup-ghostty setup-vscode prepare-vscode backup-vscode
+
+# VS Code
+setup-vscode:
+	stow -v -t ~ vscode
+
+prepare-vscode:
+	mv ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.bak.$(shell date +%Y%m%d%H%M%S)
+
+backup-vscode:
+	cp -pr ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.bak.$(shell date +%Y%m%d%H%M%S)
 

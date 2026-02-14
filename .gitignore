@@ -52,3 +52,7 @@ tags
 # Persistent undo
 [._]*.un~
 
+
+### VS Code ###
+# Workspace settings (project-specific)
+.vscode/
