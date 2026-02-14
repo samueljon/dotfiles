@@ -2,6 +2,7 @@
 # Global hotkeys (cannot conflict with other hotkeys)
 confirm = ['enter', '']
 quit = ['ctrl+c', '']
+cd_quit = ['Q', '']
 # movement
 list_up = ['k', '']
 list_down = ['j', '']
@@ -27,6 +28,7 @@ copy_items = ['y', '']
 paste_items = ['p', '']
 cut_items = ['x', '']
 delete_items = ['d', '']
+permanently_delete_items = ['D', '']
 # compress and extract
 extract_file = ['ctrl+e', '']
 compress_file = ['ctrl+a', '']
@@ -40,6 +42,7 @@ change_panel_mode = ['m', '']
 open_help_menu = ['?', '']
 open_command_line = [':', '']
 open_spf_prompt = ['>', '']
+open_zoxide = ['z', '']
 copy_path = ['Y', '']
 copy_present_working_directory = ['c', '']
 toggle_footer = ['ctrl+f', '']
@@ -52,8 +55,7 @@ cancel_typing = ['esc', '']
 parent_directory = ['-', '']
 search_bar = ['/', '']
 # =================================================================================================
-# Select mode hotkeys (can conflict with other modes, cananot conflict with global hotkeys)
+# Select mode hotkeys (can conflict with other modes, cannot conflict with global hotkeys)
 file_panel_select_mode_items_select_down = ['J', '']
 file_panel_select_mode_items_select_up = ['K', '']
 file_panel_select_all_items = ['A', '']
-ct_mode_items_select_down = ['J', '']
