@@ -120,7 +120,11 @@ case "$(uname)" in
         ;;
 esac
 
-export OP_BIOMETRIC_UNLOCK_ENABLED=true
+# 1Password CLI completion
+if command -v op &> /dev/null; then
+    eval "$(op completion zsh)"; compdef _op op
+fi
+
 # get zsh complete kubectl
 source <(kubectl completion zsh)
 # make completion work with kubecolor

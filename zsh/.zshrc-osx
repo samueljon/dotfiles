@@ -19,5 +19,10 @@ function hiddenon(){
     killall Finder
 }
 
+# 1Password CLI - Enable Touch ID for biometric unlock
+if command -v op &> /dev/null; then
+    export OP_BIOMETRIC_UNLOCK_ENABLED=true
+fi
+
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"

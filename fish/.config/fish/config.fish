@@ -8,17 +8,27 @@ set fish_greeting ""
 set -gx TERM xterm-256color
 
 # theme
-#set -g theme_color_scheme terminal-dark
-set -g theme_color_scheme nord
 set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
-# aliases
-alias ocpproxy "export HTTP_PROXY=\"http://localhost:1337\" && export HTTPS_PROXY=\"https://localhost:1337\""
-alias ocpproxyoff "set --erase HTTP_PROXY && set --erase HTTPS_PROXY"
+# Autosuggestion color - brighter for better visibility
+#   If you want to try different colors, here are some alternatives that work well with Catppuccin:
+#
+#  - Pink/Magenta: brmagenta (current setting) - bright and visible
+#  - Green: brgreen - softer, nature-inspired
+#  - Cyan: brcyan - cool and tech-like
+#  - Yellow: bryellow - warm and high contrast
+#
+#  You can also use hex colors for more precise control. Some nice Catppuccin-compatible options:
+#  - Pink: #f5c2e7
+#  - Green: #a6e3a1
+#  - Teal: #94e2d5
+#  - Mauve: #cba6f7
+set -g fish_color_autosuggestion #f5c2e7
 
+# aliases
 # Changing "ls" to "eza"
 # Skip eza aliases inside Claude Code to avoid parsing issues
 if type -q eza; and not set -q CLAUDECODE
@@ -82,6 +92,11 @@ starship init fish | source
 
 # This needs to be added before "function ... --wraps kubectl"
 kubectl completion fish | source
+
+# 1Password CLI completion
+if type -q op
+    op completion fish | source
+end
 
 # adds alias for "kubectl" to "kubecolor" with completions
 function kubectl --wraps kubectl
