@@ -19,6 +19,28 @@ theme = Catppuccin Mocha
 # Quick presets: 0.7 (light), 0.85 (medium), 0.95 (subtle), 1.0 (opaque)
 background-opacity = 0.9
 
+# Unfocused split styling - makes active split more prominent
+# Opacity: 0.75 keeps inactive splits readable but dimmed (default: 0.7)
+# Fill: Subtle blue tint that complements Catppuccin Mocha theme
+unfocused-split-opacity = 0.75
+unfocused-split-fill = #11111b
+
+# The divider uses Catppuccin Mocha's mauve color (#cba6f7) for a subtle but visible accent.
+# Alternative divider colors to try:
+#
+#  More subtle (gray):
+#  split-divider-color = #585b70
+#
+#  Blue accent:
+#  split-divider-color = #89b4fa
+#
+#  Pink accent:
+#  split-divider-color = #f5c2e7
+#
+#  Green accent:
+#  split-divider-color = #a6e3a1
+split-divider-color = #cba6f7
+
 # Mouse selection behavior
 # - Click and drag to select text
 # - Hold Option (Alt) to select text in programs that capture mouse (vim, tmux, etc.)
