@@ -22,7 +22,7 @@ background-opacity = 0.9
 # Unfocused split styling - makes active split more prominent
 # Opacity: 0.75 keeps inactive splits readable but dimmed (default: 0.7)
 # Fill: Subtle blue tint that complements Catppuccin Mocha theme
-unfocused-split-opacity = 0.75
+unfocused-split-opacity = 0.65
 unfocused-split-fill = #11111b
 
 # The divider uses Catppuccin Mocha's mauve color (#cba6f7) for a subtle but visible accent.

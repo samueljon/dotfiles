@@ -87,7 +87,6 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-zoxide init --cmd cd fish | source
 starship init fish | source
 
 # This needs to be added before "function ... --wraps kubectl"
@@ -112,3 +111,9 @@ end
 function kubecolor --wraps kubectl
     command kubecolor $argv
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+zoxide init --cmd cd fish | source

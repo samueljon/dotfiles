@@ -90,8 +90,6 @@ alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -144,4 +142,6 @@ function enansible() {
 function disansible() {
     source ~/_runtimes/ansible/bin/deactivate
 }
+
+eval "$(zoxide init --cmd cd zsh)"
 

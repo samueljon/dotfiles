@@ -153,4 +153,12 @@
   "githubLocalActions.dockerDesktopPath": "/Applications/Docker.app",
   "opa.dependency_paths.regal": "/Users/samueljon/regal",
   "chat.useAgentSkills": true,
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://opencode.ai": true,
+  },
 }
