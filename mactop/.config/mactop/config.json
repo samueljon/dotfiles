@@ -1,0 +1,20 @@
+{
+  "default_layout": "dashboard",
+  "theme": "silver",
+  "background": "clear",
+  "sort_reverse": false,
+  "menubar": {
+    "status_bar_width": 16,
+    "status_bar_height": 28,
+    "sparkline_width": 300,
+    "sparkline_height": 80,
+    "show_cpu": true,
+    "show_gpu": true,
+    "show_ane": false,
+    "show_memory": false,
+    "show_power": true,
+    "show_percent": true,
+    "font_size": 11,
+    "power_font_size": 11
+  }
+}
