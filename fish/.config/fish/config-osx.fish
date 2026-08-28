@@ -22,7 +22,11 @@ if type -q op
     set -gx OP_BIOMETRIC_UNLOCK_ENABLED true
 end
 
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH $HOME/.lmstudio/bin
+if type -q pyenv
+    set -gx PYENV_ROOT "$HOME/.pyenv"
+    set -gx PATH "$PYENV_ROOT/bin" $PATH
+    pyenv init --path | source
+    pyenv init - | source
+end
 
 set -gx PATH $PATH /Applications/Obsidian.app/Contents/MacOS
